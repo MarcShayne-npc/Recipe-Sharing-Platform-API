@@ -12,7 +12,7 @@ This Flask application manages recipes, ratings, and comments, and it uses SQLAl
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/your-repository.git
+git clone https://github.com/MarcShayne-npc/Recipe-Sharing-Platform-API.git
 cd your-repository
 docker-compose up --build
 python app.py
