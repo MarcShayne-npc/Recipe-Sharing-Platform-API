@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      SA_PASSWORD: password
+      ACCEPT_EULA: Y
+    ports:
+      - "1433:1433"
+    networks:
+      - app-network
+
+  app:
+    build:
+      context: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    networks:
+      - app-network
+    environment:
+      SQLALCHEMY_DATABASE_URI: 'mssql+pyodbc://@Maku/Recipes?driver=ODBC+Driver+17+for+SQL+Server'
+
+networks:
+  app-network:
+    driver: bridge
